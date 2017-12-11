@@ -5,34 +5,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="PHP" type="php">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/composer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/doctrine/lexer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/egulias/email-validator" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/swiftmailer/swiftmailer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/twig/twig" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/composer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/doctrine/lexer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/egulias/email-validator" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/swiftmailer/swiftmailer" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/symfony/polyfill-mbstring" />
-          <root url="file://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/twig/twig" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
-          <root url="phar://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
-          <root url="phar://$MODULE_DIR$/../parisCode-1017-douceurVegetal/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
         </SOURCES>
       </library>
     </orderEntry>

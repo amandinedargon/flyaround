@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+
+    public function __toString()
+    {
+        return $this->model . " - " . $this->manufacturer;
+    }
+
     /**
      * @var int
      *
@@ -55,6 +61,11 @@ class PlaneModel
      * @ORM\Column(name="isAvailable", type="boolean")
      */
     private $isAvailable;
+
+    /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="plane")
+     */
+    private $flights;
 
 
     /**
@@ -185,5 +196,81 @@ class PlaneModel
     public function getIsAvailable()
     {
         return $this->isAvailable;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add plane
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $plane
+     *
+     * @return PlaneModel
+     */
+    public function addPlane(\WCS\CoavBundle\Entity\Flight $plane)
+    {
+        $this->planes[] = $plane;
+
+        return $this;
+    }
+
+    /**
+     * Remove plane
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $plane
+     */
+    public function removePlane(\WCS\CoavBundle\Entity\Flight $plane)
+    {
+        $this->planes->removeElement($plane);
+    }
+
+    /**
+     * Get planes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlanes()
+    {
+        return $this->planes;
+    }
+
+    /**
+     * Add flight
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flight
+     *
+     * @return PlaneModel
+     */
+    public function addFlight(\WCS\CoavBundle\Entity\Flight $flight)
+    {
+        $this->flights[] = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Remove flight
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flight
+     */
+    public function removeFlight(\WCS\CoavBundle\Entity\Flight $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
     }
 }

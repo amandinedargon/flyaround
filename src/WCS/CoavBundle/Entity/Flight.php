@@ -12,6 +12,12 @@
      */
     class Flight
     {
+
+        public function __toString()
+        {
+            return $this->description;
+        }
+
         /**
          * @var int
          *
@@ -75,14 +81,16 @@
         /**
          * @var User $pilot
          *
-         * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
+         * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="pilots")
+         * @ORM\JoinColumn(nullable=false)
          */
         private $pilot;
 
         /**
          * @var PlaneModel $plane
          *
-         * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\PlaneModel")
+         * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\PlaneModel", inversedBy="flights")
+         * @ORM\JoinColumn(nullable=false)
          */
         private $plane;
 

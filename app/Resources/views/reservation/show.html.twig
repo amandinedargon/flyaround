@@ -19,7 +19,9 @@
             </tr>
             <tr>
                 <th>Passenger</th>
-                <td>{{ reservation.passenger }}</td>
+                {% for passenger in reservation.passenger %}
+                <td>{{ passenger.firstName }}</td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>Flight</th>

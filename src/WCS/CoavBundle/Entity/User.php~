@@ -274,9 +274,9 @@ class User
      *
      * @return User
      */
-    public function setCreationdate($creationdate)
+    public function setCreationDate($creationDate)
     {
-        $this->creationdate = $creationdate;
+        $this->creationdate = $creationDate;
 
         return $this;
     }
@@ -286,9 +286,9 @@ class User
      *
      * @return \DateTime
      */
-    public function getCreationdate()
+    public function getCreationDate()
     {
-        return $this->creationdate;
+        return $this->creationDate;
     }
 
     /**

@@ -53,6 +53,7 @@
          * @var User $reviewAuthor
          *
          * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
+         * @ORM\JoinColumn(nullable=true)
          */
         private $reviewAuthor;
 

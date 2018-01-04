@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+
+    public function __toString()
+    {
+        return $this->firstName . " " . $this->lastName;
+    }
+
     /**
      * @var int
      *
@@ -66,7 +72,8 @@ class User
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime")
+     * @ORM\Column(name="creationDate", type="datetime", nullable=true)
+     *
      */
     private $creationDate;
 
@@ -88,7 +95,7 @@ class User
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Review")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $reviews;
 
@@ -107,10 +114,15 @@ class User
     private $isActive;
 
     /**
-    * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
+    * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", mappedBy="passengers")
     * @ORM\JoinColumn(nullable=false)
     */
     private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="pilot")
+     */
+    private $pilots;
 
 
     /**
@@ -450,5 +462,107 @@ class User
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add pilot
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $pilot
+     *
+     * @return User
+     */
+    public function addPilot(\WCS\CoavBundle\Entity\Flight $pilot)
+    {
+        $this->pilots[] = $pilot;
+
+        return $this;
+    }
+
+    /**
+     * Remove pilot
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $pilot
+     */
+    public function removePilot(\WCS\CoavBundle\Entity\Flight $pilot)
+    {
+        $this->pilots->removeElement($pilot);
+    }
+
+    /**
+     * Get pilots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
+    }
+
+    /**
+     * Add rate
+     *
+     * @param \WCS\CoavBundle\Entity\Review $rate
+     *
+     * @return User
+     */
+    public function addRate(\WCS\CoavBundle\Entity\Review $rate)
+    {
+        $this->rates[] = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Remove rate
+     *
+     * @param \WCS\CoavBundle\Entity\Review $rate
+     */
+    public function removeRate(\WCS\CoavBundle\Entity\Review $rate)
+    {
+        $this->rates->removeElement($rate);
+    }
+
+    /**
+     * Get rates
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRates()
+    {
+        return $this->rates;
+    }
+
+    /**
+     * Add author
+     *
+     * @param \WCS\CoavBundle\Entity\Review $author
+     *
+     * @return User
+     */
+    public function addAuthor(\WCS\CoavBundle\Entity\Review $author)
+    {
+        $this->authors[] = $author;
+
+        return $this;
+    }
+
+    /**
+     * Remove author
+     *
+     * @param \WCS\CoavBundle\Entity\Review $author
+     */
+    public function removeAuthor(\WCS\CoavBundle\Entity\Review $author)
+    {
+        $this->authors->removeElement($author);
+    }
+
+    /**
+     * Get authors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAuthors()
+    {
+        return $this->authors;
     }
 }

@@ -72,7 +72,7 @@ class User
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime", nullable=true)
+     * @ORM\Column(name="creationDate", type="datetime")
      *
      */
     private $creationDate;
@@ -114,7 +114,7 @@ class User
     private $isActive;
 
     /**
-    * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", mappedBy="passengers")
+    * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", mappedBy="passenger")
     * @ORM\JoinColumn(nullable=false)
     */
     private $reservations;
@@ -280,21 +280,21 @@ class User
     }
 
     /**
-     * Set creationdate
+     * Set creationDate
      *
-     * @param \DateTime $creationdate
+     * @param \DateTime $creationDate
      *
      * @return User
      */
     public function setCreationDate($creationDate)
     {
-        $this->creationdate = $creationDate;
+        $this->creationDate = $creationDate;
 
         return $this;
     }
 
     /**
-     * Get creationdate
+     * Get creationDate
      *
      * @return \DateTime
      */

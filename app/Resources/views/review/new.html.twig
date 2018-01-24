@@ -1,1 +1,12 @@
-Hello World
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center text-uppercase m-5">Review creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input class="btn btn-success btn-sm" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+            <a class="btn btn-primary btn-sm" href="{{ path('review_index') }}">Back to the list</a>
+{% endblock %}

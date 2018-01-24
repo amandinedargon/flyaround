@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Planemodels list</h1>
+    <h1 class="text-center text-uppercase m-5">Planemodels list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Model</th>
-                <th>Manufacturer</th>
-                <th>Cruisespeed</th>
-                <th>Planenbseats</th>
-                <th>Isavailable</th>
-                <th>Actions</th>
-            </tr>
+    <a class="btn btn-success" href="{{ path('planemodel_new') }}">Create a new planeModel</a>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Cruisespeed</th>
+            <th>Planenbseats</th>
+            <th>Isavailable</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for planeModel in planeModels %}
@@ -25,23 +27,14 @@
                 <td>{{ planeModel.planeNbSeats }}</td>
                 <td>{% if planeModel.isAvailable %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('planemodel_show', { 'id': planeModel.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-primary btn-sm"
+                       href="{{ path('planemodel_show', { 'id': planeModel.id }) }}">show</a>
+                    <a class="btn btn-warning btn-sm"
+                       href="{{ path('planemodel_edit', { 'id': planeModel.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('planemodel_new') }}">Create a new planeModel</a>
-        </li>
-    </ul>
 {% endblock %}

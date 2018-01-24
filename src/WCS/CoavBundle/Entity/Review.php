@@ -12,6 +12,11 @@
      */
     class Review
     {
+
+        public function __toString()
+        {
+            return $this->text;
+        }
         /**
          * @var int
          *

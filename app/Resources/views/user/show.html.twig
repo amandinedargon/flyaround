@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1 class="text-center text-uppercase m-5">User</h1>
 
-    <table>
+            <a class="btn btn-primary btn-sm" href="{{ path('user_index') }}">Back to the list</a>
+            <a class="btn btn-warning btn-sm" href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+
+    <table class="table table-bordered table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -56,17 +62,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

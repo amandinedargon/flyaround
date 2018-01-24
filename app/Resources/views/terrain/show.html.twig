@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Terrain</h1>
+    <h1 class="text-center text-uppercase m-5">Terrain</h1>
 
-    <table>
+            <a class="btn btn-primary btn-sm" href="{{ path('terrain_index') }}">Back to the list</a>
+
+    <table class="table table-bordered table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -44,9 +46,4 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('terrain_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

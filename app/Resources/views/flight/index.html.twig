@@ -1,24 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Flights list</h1>
+    <h1 class="text-center text-uppercase m-5">Flights list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Departure</th>
-                <th>Arrival</th>
-                <th>Nbfreeseats</th>
-                <th>Seatprice</th>
-                <th>Takeofftime</th>
-                <th>Publicationdate</th>
-                <th>Description</th>
-                <th>Pilot</th>
-                <th>Plane</th>
-                <th>Wasdone</th>
-                <th>Actions</th>
-            </tr>
+    <a class="btn btn-success" href="{{ path('flight_new') }}">Create a new flight</a>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Id</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Nbfreeseats</th>
+            <th>Seatprice</th>
+            <th>Takeofftime</th>
+            <th>Publicationdate</th>
+            <th>Description</th>
+            <th>Pilot</th>
+            <th>Plane</th>
+            <th>Wasdone</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for flight in flights %}
@@ -35,23 +37,11 @@
                 <td>{{ flight.plane }}</td>
                 <td>{% if flight.wasDone %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('flight_show', { 'id': flight.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('flight_edit', { 'id': flight.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-primary btn-sm" href="{{ path('flight_show', { 'id': flight.id }) }}">show</a>
+                    <a class="btn btn-warning btn-sm" href="{{ path('flight_edit', { 'id': flight.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('flight_new') }}">Create a new flight</a>
-        </li>
-    </ul>
 {% endblock %}

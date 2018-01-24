@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Terrains list</h1>
+    <h1 class="text-center text-uppercase m-5">Terrains list</h1>
 
-    <table>
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -31,11 +31,7 @@
                 <td>{{ terrain.zipcode }}</td>
                 <td>{{ terrain.country }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('terrain_show', { 'id': terrain.id }) }}">show</a>
-                        </li>
-                    </ul>
+                            <a class="btn btn-primary btn-sm" href="{{ path('terrain_show', { 'id': terrain.id }) }}">show</a>
                 </td>
             </tr>
         {% endfor %}
